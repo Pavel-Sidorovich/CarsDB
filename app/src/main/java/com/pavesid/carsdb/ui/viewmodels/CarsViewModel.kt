@@ -19,7 +19,7 @@ class CarsViewModel @ViewModelInject constructor(
     val carItems = repository.observeAllCarItem()
 
     private val _insertCarItemStatus = MutableLiveData<Event<Resource<CarItem>>>()
-    val insertShoppingItemStatus: LiveData<Event<Resource<CarItem>>> = _insertCarItemStatus
+    val insertCarItemStatus: LiveData<Event<Resource<CarItem>>> = _insertCarItemStatus
 
     fun deleteCarItem(carItem: CarItem) = viewModelScope.launch {
         repository.deleteCarItem(carItem)

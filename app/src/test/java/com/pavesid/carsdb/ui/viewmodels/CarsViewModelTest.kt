@@ -35,7 +35,7 @@ class CarsViewModelTest {
     fun `insert car item with empty field, return error`() {
         viewModel.insertCarItem("Audi", "", "A", "petrol", "20000")
 
-        val value = viewModel.insertShoppingItemStatus.getOrAwaitValueTest()
+        val value = viewModel.insertCarItemStatus.getOrAwaitValueTest()
 
         assertThat(value.getContentIfNotHandled()?.status).isEqualTo(Status.ERROR)
     }
@@ -49,7 +49,7 @@ class CarsViewModelTest {
         }
         viewModel.insertCarItem("Audi", model, "A", "petrol", "20000")
 
-        val value = viewModel.insertShoppingItemStatus.getOrAwaitValueTest()
+        val value = viewModel.insertCarItemStatus.getOrAwaitValueTest()
 
         assertThat(value.getContentIfNotHandled()?.status).isEqualTo(Status.ERROR)
     }
@@ -63,7 +63,7 @@ class CarsViewModelTest {
         }
         viewModel.insertCarItem(brand, "A4 Allroad", "A", "petrol", "20000")
 
-        val value = viewModel.insertShoppingItemStatus.getOrAwaitValueTest()
+        val value = viewModel.insertCarItemStatus.getOrAwaitValueTest()
 
         assertThat(value.getContentIfNotHandled()?.status).isEqualTo(Status.ERROR)
     }
@@ -77,7 +77,7 @@ class CarsViewModelTest {
         }
         viewModel.insertCarItem("Audi", "A4 Allroad", "A", "petrol", price)
 
-        val value = viewModel.insertShoppingItemStatus.getOrAwaitValueTest()
+        val value = viewModel.insertCarItemStatus.getOrAwaitValueTest()
 
         assertThat(value.getContentIfNotHandled()?.status).isEqualTo(Status.ERROR)
     }
@@ -86,7 +86,7 @@ class CarsViewModelTest {
     fun `insert car item with valid input, return success`() {
         viewModel.insertCarItem("Audi", "A4 Allroad", "A", "petrol", "2")
 
-        val value = viewModel.insertShoppingItemStatus.getOrAwaitValueTest()
+        val value = viewModel.insertCarItemStatus.getOrAwaitValueTest()
 
         assertThat(value.getContentIfNotHandled()?.status).isEqualTo(Status.SUCCESS)
     }

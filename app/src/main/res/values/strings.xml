@@ -21,6 +21,7 @@
     <string name="producer_item">Producer:</string>
     <string name="invalid_string">Invalid string</string>
     <string name="brand">Brand</string>
+    <string name="price">Price</string>
 
     <string name="A_category">A: mini cars</string>
     <string name="B_category">B: small cars</string>
@@ -32,11 +33,9 @@
     <string name="M_category">M: Multi purpose cars (including pickup)</string>
     <string name="S_category">S: Sports cars</string>
 
-    <string name="petrol">petrol</string>
-    <string name="diesel">diesel</string>
-    <string name="gas">gas</string>
-    <string name="electricity">electricity</string>
-    <string name="hybrid">hybrid</string>
-    <string name="price">Price</string>
-
+    <string name="petrol">Petrol</string>
+    <string name="diesel">Diesel</string>
+    <string name="gas">Gas</string>
+    <string name="electricity">Electricity</string>
+    <string name="hybrid">Hybrid</string>
 </resources>
