@@ -19,6 +19,7 @@ import com.pavesid.carsdb.repositories.FakeCarRepositoryAndroidTest
 import com.pavesid.carsdb.ui.viewmodels.CarsViewModel
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import javax.inject.Inject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.hamcrest.Matchers.hasToString
 import org.hamcrest.Matchers.startsWith
@@ -38,6 +39,9 @@ class AddCarItemFragmentTest {
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
+
+    @Inject
+    lateinit var fragmentFactory: CarsFragmentFactoryAndroidTest
 
     @Before
     fun setup() {
@@ -59,7 +63,7 @@ class AddCarItemFragmentTest {
     @Test
     fun clickInsertIntoDb_carItemInsertedIntoDb() {
         val testViewModel = CarsViewModel(FakeCarRepositoryAndroidTest())
-        launchFragmentInHiltContainer<AddCarItemFragment> {
+        launchFragmentInHiltContainer<AddCarItemFragment>(fragmentFactory = fragmentFactory) {
             viewModel = testViewModel
         }
 

@@ -38,4 +38,9 @@
     <string name="gas">Gas</string>
     <string name="electricity">Electricity</string>
     <string name="hybrid">Hybrid</string>
+    <string name="class_hint">Class</string>
+    <string name="engine_type_hint">Engine type</string>
+    <string name="title">%1$s %2$s</string>
+    <string name="undo">Undo</string>
+    <string name="deleted_item">Successfully deleted item</string>
 </resources>

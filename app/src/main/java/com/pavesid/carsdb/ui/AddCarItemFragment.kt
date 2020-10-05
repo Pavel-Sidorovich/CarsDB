@@ -14,8 +14,9 @@ import com.pavesid.carsdb.R
 import com.pavesid.carsdb.databinding.FragmentAddCarItemBinding
 import com.pavesid.carsdb.ui.viewmodels.CarsViewModel
 import com.pavesid.carsdb.util.Status
+import javax.inject.Inject
 
-class AddCarItemFragment : Fragment() {
+class AddCarItemFragment @Inject constructor() : Fragment() {
 
     private var _binding: FragmentAddCarItemBinding? = null
     private val binding
@@ -70,7 +71,7 @@ class AddCarItemFragment : Fragment() {
                             result.message ?: "An unknown error occurred",
                             Snackbar.LENGTH_LONG
                         ).show()
-                        findNavController().popBackStack()
+//                        findNavController().popBackStack()
                     }
                     Status.LOADING -> {
                         /* No operation*/
