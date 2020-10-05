@@ -1,0 +1,34 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>@string/by_model</item>
+        <item>@string/by_issue</item>
+        <item>@string/by_breed</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>@string/values_model</item>
+        <item>@string/values_issue</item>
+        <item>@string/values_breed</item>
+    </string-array>
+
+    <string-array name="class_entries">
+        <item>@string/A_category</item>
+        <item>@string/B_category</item>
+        <item>@string/C_category</item>
+        <item>@string/D_category</item>
+        <item>@string/E_category</item>
+        <item>@string/F_category</item>
+        <item>@string/J_category</item>
+        <item>@string/M_category</item>
+        <item>@string/S_category</item>
+    </string-array>
+
+    <string-array name="engine_type_values">
+        <item>@string/petrol</item>
+        <item>@string/diesel</item>
+        <item>@string/gas</item>
+        <item>@string/electricity</item>
+        <item>@string/hybrid</item>
+    </string-array>
+</resources>

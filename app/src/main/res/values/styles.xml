@@ -2,9 +2,56 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+    </style>
+
+    <style name="Profile">
+    </style>
+
+    <style name="Profile.InputLayout" parent="Profile">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:padding">@dimen/spacing_normal_16</item>
+    </style>
+
+    <style name="Profile.Spinner" parent="Profile">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:padding">@dimen/spacing_normal_16</item>
+    </style>
+
+    <style name="Profile.InputLayout.Single" parent="Profile.InputLayout">
+        <item name="android:singleLine">true</item>
+        <item name="counterEnabled">true</item>
+        <item name="counterMaxLength">20</item>
+        <item name="errorEnabled">true</item>
+    </style>
+
+    <style name="Profile.InfoItem">
+        <item name="android:paddingTop">@dimen/spacing_normal_16</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">@dimen/spacing_normal_16</item>
+        <item name="android:paddingRight">@dimen/spacing_normal_16</item>
+        <item name="android:minHeight">72dp</item>
+    </style>
+
+    <style name="Recycler">
+        <item name="android:textSize">@dimen/font_small_12</item>
+        <item name="android:layout_marginStart">@dimen/spacing_small_8</item>
+        <item name="android:layout_marginTop">@dimen/spacing_small_8</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_small_8</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_small_8</item>
+        <item name="android:layout_height">20dp</item>
+    </style>
+
+    <style name="Recycler.Label" parent="Recycler">
+        <item name="android:layout_width">@dimen/label_size_100</item>
+        <item name="android:gravity">center_vertical|left|start</item>
+    </style>
+
+    <style name="WindowAnimationTransition">
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
     </style>
 
 </resources>

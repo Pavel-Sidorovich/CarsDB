@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:overScrollMode="always"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical"
+        tools:context=".ui.fragments.AddFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/brandIL"
+            style="@style/Profile.InputLayout.Single"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/brandET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/brand"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/modelIL"
+            style="@style/Profile.InputLayout.Single"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/modelET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/model"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/classSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/class_entries"
+            style="@style/Profile.Spinner" />
+
+        <Spinner
+            android:id="@+id/engineTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/engine_type_values"
+            style="@style/Profile.Spinner" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/priceIL"
+            style="@style/Profile.InputLayout.Single"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/priceET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/model"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/applyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_normal_16"
+            android:text="@string/apply" />
+    </LinearLayout>
+</ScrollView>
