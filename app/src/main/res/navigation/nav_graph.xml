@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/carsFragment">
+
+    <fragment
+        android:id="@+id/carsFragment"
+        android:name="com.pavesid.carsdb.ui.CarsFragment"
+        android:label="CarsFragment" >
+        <action
+            android:id="@+id/action_carsFragment_to_addCarItemFragment"
+            app:destination="@id/addCarItemFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCarItemFragment"
+        android:name="com.pavesid.carsdb.ui.AddCarItemFragment"
+        android:label="AddCarItemFragment" />
+</navigation>

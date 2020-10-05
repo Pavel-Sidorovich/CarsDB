@@ -27,6 +27,10 @@
         <item name="errorEnabled">true</item>
     </style>
 
+    <style name="Profile.InputLayout.Single.Price" parent="Profile.InputLayout.Single">
+        <item name="counterMaxLength">10</item>
+    </style>
+
     <style name="Profile.InfoItem">
         <item name="android:paddingTop">@dimen/spacing_normal_16</item>
         <item name="android:paddingBottom">5dp</item>

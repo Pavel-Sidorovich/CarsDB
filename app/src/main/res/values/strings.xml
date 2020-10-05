@@ -37,5 +37,6 @@
     <string name="gas">gas</string>
     <string name="electricity">electricity</string>
     <string name="hybrid">hybrid</string>
+    <string name="price">Price</string>
 
 </resources>

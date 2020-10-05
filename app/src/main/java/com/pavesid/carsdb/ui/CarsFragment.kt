@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.pavesid.carsdb.databinding.FragmentCarsBinding
 import com.pavesid.carsdb.ui.viewmodels.CarsViewModel
 
@@ -22,6 +23,12 @@ class CarsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentCarsBinding.inflate(layoutInflater)
+
+        binding.fab.setOnClickListener {
+            findNavController().navigate(
+                CarsFragmentDirections.actionCarsFragmentToAddCarItemFragment()
+            )
+        }
 
         return binding.root
     }
