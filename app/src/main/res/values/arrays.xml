@@ -1,15 +1,19 @@
 <resources>
     <!-- Reply Preference -->
     <string-array name="reply_entries">
+        <item>@string/by_brand</item>
         <item>@string/by_model</item>
-        <item>@string/by_issue</item>
-        <item>@string/by_breed</item>
+        <item>@string/by_price</item>
+        <item>@string/by_class</item>
+        <item>@string/by_engine_type</item>
     </string-array>
 
     <string-array name="reply_values">
+        <item>@string/values_brand</item>
         <item>@string/values_model</item>
-        <item>@string/values_issue</item>
-        <item>@string/values_breed</item>
+        <item>@string/values_price</item>
+        <item>@string/values_class</item>
+        <item>@string/values_engine_type</item>
     </string-array>
 
     <string-array name="class_entries">

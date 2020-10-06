@@ -1,5 +1,6 @@
 package com.pavesid.carsdb.ui.viewmodels
 
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -16,10 +17,13 @@ class CarsViewModel @ViewModelInject constructor(
     private val repository: CarRepository
 ) : ViewModel() {
 
-    val carItems = repository.observeAllCarItem()
+    var carItems = repository.observeAllCarItemByBrand()
 
     private val _insertCarItemStatus = MutableLiveData<Event<Resource<CarItem>>>()
     val insertCarItemStatus: LiveData<Event<Resource<CarItem>>> = _insertCarItemStatus
+
+    private val _appTheme = MutableLiveData<Int>()
+    val appTheme: LiveData<Int> = _appTheme
 
     fun deleteCarItem(carItem: CarItem) = viewModelScope.launch {
         repository.deleteCarItem(carItem)
@@ -55,5 +59,23 @@ class CarsViewModel @ViewModelInject constructor(
         val carItem = CarItem( carBrand, carModel, carClass, engineType, carPrice )
         insertCarItemIntoDb(carItem)
         _insertCarItemStatus.postValue(Event(Resource.success(carItem)))
+    }
+
+    fun switchTheme(isDark: Boolean) {
+        if (isDark) {
+            _appTheme.value = AppCompatDelegate.MODE_NIGHT_YES
+        } else {
+            _appTheme.value = AppCompatDelegate.MODE_NIGHT_NO
+        }
+    }
+
+    fun updateSort(newSort: String) {
+        carItems = when (newSort) {
+            "brand" -> repository.observeAllCarItemByBrand()
+            "model" -> repository.observeAllCarItemByModel()
+            "price" -> repository.observeAllCarItemByPrice()
+            "class" -> repository.observeAllCarItemByClass()
+            else -> repository.observeAllCarItemByEngineType()
+        }
     }
 }

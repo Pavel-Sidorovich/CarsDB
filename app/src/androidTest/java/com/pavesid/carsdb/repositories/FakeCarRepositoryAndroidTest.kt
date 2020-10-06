@@ -26,4 +26,34 @@ class FakeCarRepositoryAndroidTest : CarRepository {
     }
 
     override fun observeAllCarItem(): LiveData<List<CarItem>> = observableCarItems
+
+    override fun observeAllCarItemByModel(): LiveData<List<CarItem>> {
+        list.sortBy { it.carModel }
+        observableCarItems.postValue(list)
+        return observableCarItems
+    }
+
+    override fun observeAllCarItemByBrand(): LiveData<List<CarItem>> {
+        list.sortBy { it.carBrand }
+        observableCarItems.postValue(list)
+        return observableCarItems
+    }
+
+    override fun observeAllCarItemByPrice(): LiveData<List<CarItem>> {
+        list.sortBy { it.carPrice }
+        observableCarItems.postValue(list)
+        return observableCarItems
+    }
+
+    override fun observeAllCarItemByClass(): LiveData<List<CarItem>> {
+        list.sortBy { it.carClass }
+        observableCarItems.postValue(list)
+        return observableCarItems
+    }
+
+    override fun observeAllCarItemByEngineType(): LiveData<List<CarItem>> {
+        list.sortBy { it.engineType }
+        observableCarItems.postValue(list)
+        return observableCarItems
+    }
 }

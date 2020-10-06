@@ -2,12 +2,19 @@
     <string name="app_name">CarsDB</string>
 
     <string name="sort_title">Sorting</string>
+
+    <string name="values_brand">brand</string>
     <string name="values_model">model</string>
-    <string name="values_issue">issue</string>
-    <string name="values_breed">breed</string>
+    <string name="values_price">price</string>
+    <string name="values_class">class</string>
+    <string name="values_engine_type">engine_type</string>
+
     <string name="by_model">By model</string>
-    <string name="by_issue">By date of issue</string>
-    <string name="by_breed">By producer</string>
+    <string name="by_price">By price</string>
+    <string name="by_class">By class</string>
+    <string name="by_brand">By brand</string>
+    <string name="by_engine_type">By engine type</string>
+
     <string name="model">Model</string>
     <string name="date_of_issue">Date of issue</string>
     <string name="manufacturer">Producer</string>
@@ -43,4 +50,7 @@
     <string name="title">%1$s %2$s</string>
     <string name="undo">Undo</string>
     <string name="deleted_item">Successfully deleted item</string>
+
+    <string name="theme_prefs" translatable="false">theme</string>
+    <string name="sort_prefs" translatable="false">sort</string>
 </resources>

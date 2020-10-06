@@ -1,7 +1,6 @@
 package com.pavesid.carsdb.ui.fragments
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso.onView
@@ -9,7 +8,6 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.swipeLeft
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.MediumTest
 import com.google.common.truth.Truth.assertThat
@@ -18,6 +16,7 @@ import com.pavesid.carsdb.adapters.CarItemAdapter
 import com.pavesid.carsdb.data.local.CarItem
 import com.pavesid.carsdb.getOrAwaitValue
 import com.pavesid.carsdb.launchFragmentInHiltContainer
+import com.pavesid.carsdb.repositories.FakeCarRepositoryAndroidTest
 import com.pavesid.carsdb.ui.CarsFragmentFactoryAndroidTest
 import com.pavesid.carsdb.ui.MainActivity
 import com.pavesid.carsdb.ui.viewmodels.CarsViewModel
@@ -42,10 +41,6 @@ class CarsFragmentTest {
     @get:Rule
     var instanceTaskExecutorRule = InstantTaskExecutorRule()
 
-    @get:Rule
-    var activityRule: ActivityScenarioRule<MainActivity>
-            = ActivityScenarioRule(MainActivity::class.java)
-
     @Inject
     lateinit var testFragmentFactoryAndroidTest: CarsFragmentFactoryAndroidTest
 
@@ -68,23 +63,6 @@ class CarsFragmentTest {
         )
     }
 
-//    @Test
-//    fun clickSettingsButton_navigateToSettingsFragment() {
-//        val navController = mock(NavController::class.java)
-//        launchFragmentInContainer<CarsFragment>().onFragment {
-//            it.activity?.supportFragmentManager?.fragmentFactory = testFragmentFactoryAndroidTest
-//            Navigation.setViewNavController(it.requireView(), navController)
-//        }
-//
-//
-//        onView(withId(R.id.action_settings)).perform(click())
-////        onView(withText(R.string.settings)).perform(click())
-//
-//        verify(navController).navigate(
-//            CarsFragmentDirections.actionCarsFragmentToSettingsFragment()
-//        )
-//    }
-
     @Test
     fun swipeCarItem_deleteItemInDb() {
         val carItem = CarItem(
@@ -96,7 +74,7 @@ class CarsFragmentTest {
             1
         )
 
-        var testViewModel: CarsViewModel? = null
+        var testViewModel: CarsViewModel? = CarsViewModel(FakeCarRepositoryAndroidTest())
 
         launchFragmentInHiltContainer<CarsFragment>(fragmentFactory = testFragmentFactoryAndroidTest) {
             testViewModel = viewModel

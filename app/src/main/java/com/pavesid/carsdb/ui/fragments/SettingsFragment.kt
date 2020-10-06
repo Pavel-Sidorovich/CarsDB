@@ -1,30 +1,26 @@
 package com.pavesid.carsdb.ui.fragments
 
-import android.content.Context
 import android.os.Bundle
-import android.view.*
-import androidx.fragment.app.activityViewModels
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.pavesid.carsdb.R
+import com.pavesid.carsdb.ui.viewmodels.CarsViewModel
 import com.pavesid.carsdb.util.Constants.SORT
 import com.pavesid.carsdb.util.Constants.THEME
+import javax.inject.Inject
 
-class SettingsFragment : PreferenceFragmentCompat() {
-
-//    private val viewModel: BaseViewModel by activityViewModels()
-//
-//    private lateinit var mainActivity: MainActivity
-//
-//    override fun onAttach(context: Context) {
-//        super.onAttach(context)
-//        mainActivity = context as MainActivity
-//    }
+class SettingsFragment @Inject constructor(var viewModel: CarsViewModel?) : PreferenceFragmentCompat() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
+
+        viewModel = viewModel ?: ViewModelProvider(requireActivity()).get(CarsViewModel::class.java)
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -45,32 +41,18 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val changeSort: ListPreference? = findPreference(SORT)
         val switchTheme: SwitchPreferenceCompat? = findPreference(THEME)
 
-//        switchTheme?.setOnPreferenceChangeListener { _, newValue ->
-//            if (newValue is Boolean) {
-//                viewModel.switchTheme(newValue)
-//            }
-//            return@setOnPreferenceChangeListener true
-//        }
-//
-//        changeSort?.setOnPreferenceChangeListener { _, newValue ->
-//            if (newValue is String) {
-//                viewModel.updateSort(newValue)
-//            }
-//            return@setOnPreferenceChangeListener true
-//        }
-    }
+        switchTheme?.setOnPreferenceChangeListener { _, newValue ->
+            if (newValue is Boolean) {
+                viewModel?.switchTheme(newValue)
+            }
+            return@setOnPreferenceChangeListener true
+        }
 
-//    override fun onStart() {
-//        super.onStart()
-//        mainActivity.supportActionBar?.apply {
-//            setDisplayHomeAsUpEnabled(true)
-//            setDisplayShowHomeEnabled(true)
-//            title = getString(R.string.settings)
-//        }
-//    }
-//
-//    override fun onStop() {
-//        super.onStop()
-//        mainActivity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
-//    }
+        changeSort?.setOnPreferenceChangeListener { _, newValue ->
+            if (newValue is String) {
+                viewModel?.updateSort(newValue)
+            }
+            return@setOnPreferenceChangeListener true
+        }
+    }
 }

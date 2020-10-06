@@ -50,18 +50,6 @@ class AddCarItemFragmentTest {
     }
 
     @Test
-    fun pressBackButton_popBackStack() {
-        val navController = mock(NavController::class.java)
-        launchFragmentInHiltContainer<AddCarItemFragment> {
-            Navigation.setViewNavController(requireView(), navController)
-        }
-
-        pressBack()
-
-        verify(navController).popBackStack()
-    }
-
-    @Test
     fun clickInsertIntoDb_carItemInsertedIntoDb() {
         val testViewModel = CarsViewModel(FakeCarRepositoryAndroidTest())
         launchFragmentInHiltContainer<AddCarItemFragment>(fragmentFactory = fragmentFactory) {

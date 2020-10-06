@@ -18,4 +18,19 @@ interface CarsDao {
 
     @Query("SELECT * FROM car_items")
     fun observeAllCarItems(): LiveData<List<CarItem>>
+
+    @Query("SELECT * FROM car_items ORDER BY carModel")
+    fun observeAllCarItemByModel(): LiveData<List<CarItem>>
+
+    @Query("SELECT * FROM car_items ORDER BY carBrand")
+    fun observeAllCarItemByBrand(): LiveData<List<CarItem>>
+
+    @Query("SELECT * FROM car_items ORDER BY carPrice")
+    fun observeAllCarItemByPrice(): LiveData<List<CarItem>>
+
+    @Query("SELECT * FROM car_items ORDER BY carClass")
+    fun observeAllCarItemByClass(): LiveData<List<CarItem>>
+
+    @Query("SELECT * FROM car_items ORDER BY engineType")
+    fun observeAllCarItemByEngineType(): LiveData<List<CarItem>>
 }

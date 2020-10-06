@@ -17,4 +17,14 @@ class DefaultCarRepository @Inject constructor(
     }
 
     override fun observeAllCarItem(): LiveData<List<CarItem>> = carsDao.observeAllCarItems()
+
+    override fun observeAllCarItemByModel(): LiveData<List<CarItem>> = carsDao.observeAllCarItemByModel()
+
+    override fun observeAllCarItemByBrand(): LiveData<List<CarItem>> = carsDao.observeAllCarItemByBrand()
+
+    override fun observeAllCarItemByPrice(): LiveData<List<CarItem>> = carsDao.observeAllCarItemByPrice()
+
+    override fun observeAllCarItemByClass(): LiveData<List<CarItem>> = carsDao.observeAllCarItemByClass()
+
+    override fun observeAllCarItemByEngineType(): LiveData<List<CarItem>> = carsDao.observeAllCarItemByEngineType()
 }

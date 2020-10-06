@@ -42,13 +42,6 @@ class AddCarItemFragment @Inject constructor() : Fragment() {
             )
         }
 
-        val callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                findNavController().popBackStack()
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(callback)
-
         return binding.root
     }
 
