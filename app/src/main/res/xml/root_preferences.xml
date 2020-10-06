@@ -1,0 +1,18 @@
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreferenceCompat
+        android:defaultValue="false"
+        android:key="switchTheme"
+        android:icon="@drawable/ic_bright"
+        android:title="@string/dark_mode" />
+
+        <ListPreference
+            app:key="sort"
+            app:title="@string/sort_title"
+            app:entries="@array/reply_entries"
+            app:entryValues="@array/reply_values"
+            app:useSimpleSummaryProvider="true"
+            app:defaultValue="@string/values_model" />
+</PreferenceScreen>

@@ -5,14 +5,21 @@
 
     <fragment
         android:id="@+id/carsFragment"
-        android:name="com.pavesid.carsdb.ui.CarsFragment"
+        android:name="com.pavesid.carsdb.ui.fragments.CarsFragment"
         android:label="CarsFragment" >
         <action
             android:id="@+id/action_carsFragment_to_addCarItemFragment"
             app:destination="@id/addCarItemFragment" />
+        <action
+            android:id="@+id/action_carsFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addCarItemFragment"
-        android:name="com.pavesid.carsdb.ui.AddCarItemFragment"
+        android:name="com.pavesid.carsdb.ui.fragments.AddCarItemFragment"
         android:label="AddCarItemFragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.pavesid.carsdb.ui.fragments.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>

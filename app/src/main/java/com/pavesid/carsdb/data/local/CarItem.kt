@@ -11,5 +11,5 @@ data class CarItem(
     val engineType: String,
     val carPrice: String,
     @PrimaryKey(autoGenerate = true)
-    val id: Int = -1
+    val id: Int? = null
 )

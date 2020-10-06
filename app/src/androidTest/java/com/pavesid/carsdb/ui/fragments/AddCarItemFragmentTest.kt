@@ -1,4 +1,4 @@
-package com.pavesid.carsdb.ui
+package com.pavesid.carsdb.ui.fragments
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.navigation.NavController
@@ -16,6 +16,7 @@ import com.pavesid.carsdb.data.local.CarItem
 import com.pavesid.carsdb.getOrAwaitValue
 import com.pavesid.carsdb.launchFragmentInHiltContainer
 import com.pavesid.carsdb.repositories.FakeCarRepositoryAndroidTest
+import com.pavesid.carsdb.ui.CarsFragmentFactoryAndroidTest
 import com.pavesid.carsdb.ui.viewmodels.CarsViewModel
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest

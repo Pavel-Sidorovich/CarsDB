@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import com.pavesid.carsdb.adapters.CarItemAdapter
 import com.pavesid.carsdb.repositories.FakeCarRepositoryAndroidTest
+import com.pavesid.carsdb.ui.fragments.CarsFragment
 import com.pavesid.carsdb.ui.viewmodels.CarsViewModel
 import javax.inject.Inject
 

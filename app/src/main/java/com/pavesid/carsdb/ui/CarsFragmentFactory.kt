@@ -3,6 +3,7 @@ package com.pavesid.carsdb.ui
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import com.pavesid.carsdb.adapters.CarItemAdapter
+import com.pavesid.carsdb.ui.fragments.CarsFragment
 import javax.inject.Inject
 
 class CarsFragmentFactory @Inject constructor(
