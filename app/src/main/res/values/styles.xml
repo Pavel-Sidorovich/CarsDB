@@ -1,11 +1,4 @@
 <resources>
-    <!-- Base application theme. -->
-<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
-<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-<!--        <item name="colorPrimary">@color/color_primary</item>-->
-<!--        <item name="colorPrimaryDark">@color/color_primary_dark</item>-->
-<!--        <item name="colorAccent">@color/color_accent</item>-->
-<!--    </style>-->
 
     <style name="Profile">
     </style>
@@ -31,31 +24,20 @@
         <item name="counterMaxLength">10</item>
     </style>
 
-    <style name="Profile.InfoItem">
-        <item name="android:paddingTop">@dimen/spacing_normal_16</item>
-        <item name="android:paddingBottom">5dp</item>
-        <item name="android:paddingLeft">@dimen/spacing_normal_16</item>
-        <item name="android:paddingRight">@dimen/spacing_normal_16</item>
-        <item name="android:minHeight">72dp</item>
-    </style>
-
-    <style name="Recycler">
-        <item name="android:textSize">@dimen/font_small_12</item>
-        <item name="android:layout_marginStart">@dimen/spacing_small_8</item>
-        <item name="android:layout_marginTop">@dimen/spacing_small_8</item>
-        <item name="android:layout_marginEnd">@dimen/spacing_small_8</item>
-        <item name="android:layout_marginBottom">@dimen/spacing_small_8</item>
-        <item name="android:layout_height">20dp</item>
-    </style>
-
-    <style name="Recycler.Label" parent="Recycler">
-        <item name="android:layout_width">@dimen/label_size_100</item>
-        <item name="android:gravity">center_vertical|left|start</item>
-    </style>
-
     <style name="WindowAnimationTransition">
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>
         <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
     </style>
 
+    <style name="ActionBarStyle" parent="Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="titleTextStyle">@style/ActionBarStyle.TitleTextStyle</item>
+    </style>
+
+    <style name="ActionBarStyle.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">?attr/colorActionBar</item>
+    </style>
+
+    <style name="ActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">?attr/colorActionBar</item>
+    </style>
 </resources>

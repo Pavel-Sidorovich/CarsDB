@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryDark">@color/color_primary_dark</item>
@@ -11,7 +10,12 @@
         <item name="colorDivider">@color/color_divider_dark</item>
         <item name="colorBackground">@color/color_bg</item>
         <item name="colorSelected">@color/color_gray_light</item>
+        <item name="colorActionBar">@color/color_bg</item>
 
         <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+<!--        Change color of title-->
+        <item name="actionBarStyle">@style/ActionBarStyle</item>
+<!--        Change color of arrow-->
+        <item name="actionBarTheme">@style/ActionBarTheme</item>
     </style>
 </resources>
