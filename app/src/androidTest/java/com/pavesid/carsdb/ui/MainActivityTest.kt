@@ -29,7 +29,9 @@ class MainActivityTest {
     @get:Rule
     var instanceTaskExecutorRule = InstantTaskExecutorRule()
 
-    @get:Rule var activityRule: ActivityTestRule<MainActivity> = ActivityTestRule(MainActivity::class.java, false, true)
+    @get:Rule
+    var activityRule: ActivityTestRule<MainActivity> =
+        ActivityTestRule(MainActivity::class.java, false, true)
 
     @Inject
     lateinit var testFragmentFactoryAndroidTest: CarsFragmentFactoryAndroidTest

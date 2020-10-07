@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ItemTouchHelper.LEFT
+import androidx.recyclerview.widget.ItemTouchHelper.RIGHT
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -52,7 +53,7 @@ class CarsFragment @Inject constructor(
     }
 
     private val itemTouchCallback = object : ItemTouchHelper.SimpleCallback(
-        0, LEFT
+        0, LEFT or RIGHT
     ) {
         override fun onMove(
             recyclerView: RecyclerView,
@@ -63,13 +64,26 @@ class CarsFragment @Inject constructor(
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             val pos = viewHolder.layoutPosition
             val item = carItemAdapter.carItems[pos]
-            viewModel?.deleteCarItem(item)
-            Snackbar.make(requireView(), getString(R.string.deleted_item), Snackbar.LENGTH_SHORT).apply {
-                setAction(getString(R.string.undo)) {
-                    viewModel?.insertCarItemIntoDb(item)
+            when (direction) {
+                LEFT -> {
+                    viewModel?.deleteCarItem(item)
+                    Snackbar.make(requireView(), getString(R.string.deleted_item), Snackbar.LENGTH_SHORT).apply {
+                        setAction(getString(R.string.undo)) {
+                            viewModel?.insertCarItemIntoDb(item)
+                        }
+                        show()
+                    }
                 }
-                show()
+                RIGHT -> {
+                    Snackbar.make(requireView(), "Вправо", Snackbar.LENGTH_SHORT).show()
+                    findNavController().navigate(
+                        CarsFragmentDirections.actionCarsFragmentToAddCarItemFragment(item)
+                    )
+//                    val action = SpecifyAmountFragmentDirections.confirmationAction(amount)
+//                    v.findNavController().navigate(action)
+                }
             }
+
         }
     }
 

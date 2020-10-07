@@ -9,6 +9,8 @@ interface CarRepository {
 
     suspend fun deleteCarItem(carItem: CarItem)
 
+    suspend fun updateCarItem(carItem: CarItem)
+
     fun observeAllCarItem(): LiveData<List<CarItem>>
 
     fun observeAllCarItemByModel(): LiveData<List<CarItem>>

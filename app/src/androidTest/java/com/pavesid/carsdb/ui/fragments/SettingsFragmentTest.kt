@@ -33,7 +33,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-
 @MediumTest
 @HiltAndroidTest
 @ExperimentalCoroutinesApi
@@ -148,7 +147,11 @@ class SettingsFragmentTest {
                 workForGroup(linearLayout, uiController, view)
             }
 
-            private fun workForGroup(viewGroup: ViewGroup, uiController: UiController?, view: View) {
+            private fun workForGroup(
+                viewGroup: ViewGroup,
+                uiController: UiController?,
+                view: View
+            ) {
                 val count = viewGroup.childCount - 1
                 for (i in 0..count) {
                     if (viewGroup.getChildAt(i) is ViewGroup) {

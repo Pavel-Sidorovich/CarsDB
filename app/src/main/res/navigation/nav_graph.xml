@@ -9,7 +9,14 @@
         android:label="@string/cars" >
         <action
             android:id="@+id/action_carsFragment_to_addCarItemFragment"
-            app:destination="@id/addCarItemFragment" />
+            app:destination="@id/addCarItemFragment" >
+
+            <argument
+                android:name="carItem"
+                app:argType="com.pavesid.carsdb.data.local.CarItem"
+                app:nullable="true"
+                android:defaultValue="@null" />
+        </action>
         <action
             android:id="@+id/action_carsFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />

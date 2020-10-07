@@ -3,7 +3,6 @@ package com.pavesid.carsdb.repositories
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.pavesid.carsdb.data.local.CarItem
-import javax.inject.Inject
 
 class FakeCarRepository : CarRepository {
 
@@ -22,6 +21,12 @@ class FakeCarRepository : CarRepository {
 
     override suspend fun deleteCarItem(carItem: CarItem) {
         list.remove(carItem)
+        refreshLiveData()
+    }
+
+    override suspend fun updateCarItem(carItem: CarItem) {
+        list.removeAll { it.id == carItem.id }
+        list.add(carItem)
         refreshLiveData()
     }
 

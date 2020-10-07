@@ -11,7 +11,8 @@ import com.pavesid.carsdb.R
 import com.pavesid.carsdb.data.local.CarItem
 import javax.inject.Inject
 
-class CarItemAdapter @Inject constructor() : RecyclerView.Adapter<CarItemAdapter.CarItemViewHolder>() {
+class CarItemAdapter @Inject constructor() :
+    RecyclerView.Adapter<CarItemAdapter.CarItemViewHolder>() {
 
     private val diffCallback = object : DiffUtil.ItemCallback<CarItem>() {
 
@@ -53,7 +54,8 @@ class CarItemAdapter @Inject constructor() : RecyclerView.Adapter<CarItemAdapter
             carPrice.text = carItem.carPrice
             carClass.text = carItem.carClass
             carEngineType.text = carItem.engineType
-            carTitle.text = itemView.context.getString(R.string.title, carItem.carBrand, carItem.carModel)
+            carTitle.text =
+                itemView.context.getString(R.string.title, carItem.carBrand, carItem.carModel)
         }
     }
 }

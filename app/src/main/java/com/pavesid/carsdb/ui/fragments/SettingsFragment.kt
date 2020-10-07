@@ -14,7 +14,8 @@ import com.pavesid.carsdb.util.Constants.SORT
 import com.pavesid.carsdb.util.Constants.THEME
 import javax.inject.Inject
 
-class SettingsFragment @Inject constructor(var viewModel: CarsViewModel?) : PreferenceFragmentCompat() {
+class SettingsFragment @Inject constructor(var viewModel: CarsViewModel?) :
+    PreferenceFragmentCompat() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

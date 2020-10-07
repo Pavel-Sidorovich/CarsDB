@@ -33,6 +33,11 @@ class CarsViewModel @ViewModelInject constructor(
         repository.insertCarItem(carItem)
     }
 
+    fun updateCarItemIntoDb(carItem: CarItem) = viewModelScope.launch {
+        repository.updateCarItem(carItem)
+        _insertCarItemStatus.postValue(Event(Resource.success(carItem)))
+    }
+
     fun insertCarItem(
         carBrand: String,
         carModel: String,

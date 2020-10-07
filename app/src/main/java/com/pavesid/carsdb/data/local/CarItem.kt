@@ -2,6 +2,7 @@ package com.pavesid.carsdb.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 @Entity(tableName = "car_items")
 data class CarItem(
@@ -12,4 +13,4 @@ data class CarItem(
     val carPrice: String,
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null
-)
+) : Serializable

@@ -10,7 +10,7 @@
         <item name="colorDivider">@color/color_divider_dark</item>
         <item name="colorBackground">@color/color_bg</item>
         <item name="colorSelected">@color/color_gray_light</item>
-        <item name="colorActionBar">@color/color_bg</item>
+        <item name="colorActionBar">@color/color_gray_light</item>
 
         <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
 <!--        Change color of title-->

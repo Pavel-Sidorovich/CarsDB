@@ -6,6 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface CarsDao {
@@ -15,6 +16,9 @@ interface CarsDao {
 
     @Delete
     suspend fun deleteCarItem(carItem: CarItem)
+
+    @Update
+    suspend fun updateCarItem(carItem: CarItem)
 
     @Query("SELECT * FROM car_items")
     fun observeAllCarItems(): LiveData<List<CarItem>>

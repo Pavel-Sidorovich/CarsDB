@@ -14,7 +14,7 @@ class CarsFragmentFactoryAndroidTest @Inject constructor(
 ) : FragmentFactory() {
 
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
-        return when(className) {
+        return when (className) {
             CarsFragment::class.java.name -> CarsFragment(
                 carItemAdapter,
                 CarsViewModel(FakeCarRepositoryAndroidTest())

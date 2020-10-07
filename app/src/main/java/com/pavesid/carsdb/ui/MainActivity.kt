@@ -26,12 +26,13 @@ class MainActivity : AppCompatActivity() {
 
     private val navController by lazy { host.navController }
 
-    private val viewModel: CarsViewModel by viewModels()
+    val viewModel: CarsViewModel by viewModels()
 
     /**
-     * Use [ContainerActivityEntryPoint] for fragment factory. Else if use @Inject fragmentFactory would be crash after change orientation
+     * Use [ContainerActivityEntryPoint] for fragment factory. If use @Inject fragmentFactory than would be crash after change orientation
      */
     override fun onCreate(savedInstanceState: Bundle?) {
+
         val entryPoint =
             EntryPointAccessors.fromActivity(this, ContainerActivityEntryPoint::class.java)
         val fragmentFactory = entryPoint.getFragmentFactory()

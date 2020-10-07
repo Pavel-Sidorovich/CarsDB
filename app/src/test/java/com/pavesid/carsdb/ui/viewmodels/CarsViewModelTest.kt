@@ -3,6 +3,7 @@ package com.pavesid.carsdb.ui.viewmodels
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
 import com.pavesid.carsdb.MainCoroutineRule
+import com.pavesid.carsdb.data.local.CarItem
 import com.pavesid.carsdb.getOrAwaitValueTest
 import com.pavesid.carsdb.repositories.FakeCarRepository
 import com.pavesid.carsdb.util.Constants
@@ -89,5 +90,33 @@ class CarsViewModelTest {
         val value = viewModel.insertCarItemStatus.getOrAwaitValueTest()
 
         assertThat(value.getContentIfNotHandled()?.status).isEqualTo(Status.SUCCESS)
+    }
+
+    @Test
+    fun `update element in db new exist in db`() {
+        val carItem = CarItem(
+            "Audi", "A4 Allroad", "A", "petrol", "2", 1
+        )
+        val newCarItem = CarItem(
+            "Opel", "A4 Allroad", "A", "petrol", "2", 1
+        )
+        viewModel.insertCarItemIntoDb(carItem)
+        viewModel.updateCarItemIntoDb(newCarItem)
+
+        assertThat(viewModel.carItems.getOrAwaitValueTest().contains(newCarItem)).isTrue()
+    }
+
+    @Test
+    fun `update element in db old not exist in db`() {
+        val carItem = CarItem(
+            "Audi", "A4 Allroad", "A", "petrol", "2", 1
+        )
+        val newCarItem = CarItem(
+            "Opel", "A4 Allroad", "A", "petrol", "2", 1
+        )
+        viewModel.insertCarItemIntoDb(carItem)
+        viewModel.updateCarItemIntoDb(newCarItem)
+
+        assertThat(viewModel.carItems.getOrAwaitValueTest().contains(carItem)).isFalse()
     }
 }

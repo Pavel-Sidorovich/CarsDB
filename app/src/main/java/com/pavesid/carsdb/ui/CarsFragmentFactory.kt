@@ -12,7 +12,7 @@ class CarsFragmentFactory @Inject constructor(
 ) : FragmentFactory() {
 
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
-        return when(className) {
+        return when (className) {
             CarsFragment::class.java.name -> CarsFragment(carItemAdapter)
             SettingsFragment::class.java.name -> SettingsFragment(null)
             else -> super.instantiate(classLoader, className)

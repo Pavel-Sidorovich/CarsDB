@@ -6,9 +6,9 @@ import androidx.navigation.Navigation
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.swipeLeft
+import androidx.test.espresso.action.ViewActions.swipeRight
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.MediumTest
 import com.google.common.truth.Truth.assertThat
 import com.pavesid.carsdb.R
@@ -18,7 +18,6 @@ import com.pavesid.carsdb.getOrAwaitValue
 import com.pavesid.carsdb.launchFragmentInHiltContainer
 import com.pavesid.carsdb.repositories.FakeCarRepositoryAndroidTest
 import com.pavesid.carsdb.ui.CarsFragmentFactoryAndroidTest
-import com.pavesid.carsdb.ui.MainActivity
 import com.pavesid.carsdb.ui.viewmodels.CarsViewModel
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -64,7 +63,7 @@ class CarsFragmentTest {
     }
 
     @Test
-    fun swipeCarItem_deleteItemInDb() {
+    fun swipeCarItemToLeft_deleteItemInDb() {
         val carItem = CarItem(
             "Audi",
             "A4 Allroad",
@@ -89,5 +88,38 @@ class CarsFragmentTest {
         )
 
         assertThat(testViewModel?.carItems?.getOrAwaitValue()).isEmpty()
+    }
+
+    @Test
+    fun swipeCarItemToRight_openAddCarItemFragment() {
+        val carItem = CarItem(
+            "Audi",
+            "A4 Allroad",
+            "A",
+            "petrol",
+            "20000",
+            1
+        )
+
+        val navController = mock(NavController::class.java)
+
+        var testViewModel: CarsViewModel? = CarsViewModel(FakeCarRepositoryAndroidTest())
+
+        launchFragmentInHiltContainer<CarsFragment>(fragmentFactory = testFragmentFactoryAndroidTest) {
+            Navigation.setViewNavController(requireView(), navController)
+            testViewModel = viewModel
+            viewModel?.insertCarItemIntoDb(carItem)
+        }
+
+        onView(withId(R.id.recycler)).perform(
+            RecyclerViewActions.actionOnItemAtPosition<CarItemAdapter.CarItemViewHolder>(
+                0,
+                swipeRight()
+            )
+        )
+
+        verify(navController).navigate(
+            CarsFragmentDirections.actionCarsFragmentToAddCarItemFragment(carItem)
+        )
     }
 }
