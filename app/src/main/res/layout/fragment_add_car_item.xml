@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -15,33 +16,35 @@
         android:scrollbars="vertical"
         tools:context=".ui.fragments.AddFragment">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/brandIL"
-            style="@style/Profile.InputLayout.Single"
+        <ProgressBar
+            android:id="@+id/progressBarBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/brandSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible"
+            style="@style/Profile.Spinner" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/brandET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/brand"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
+        <ProgressBar
+            android:id="@+id/progressBarModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/modelIL"
-            style="@style/Profile.InputLayout.Single"
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/modelSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/modelET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/model"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible"
+            style="@style/Profile.Spinner" />
 
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/classSpinner"
@@ -50,13 +53,12 @@
             android:entries="@array/class_entries"
             style="@style/Profile.Spinner" />
 
-        <Spinner
+        <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/engineTypeSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/engine_type_values"
             style="@style/Profile.Spinner" />
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/priceIL"
@@ -78,5 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_normal_16"
             android:text="@string/apply" />
+
     </LinearLayout>
+
 </ScrollView>

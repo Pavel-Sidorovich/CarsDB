@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import com.pavesid.carsdb.adapters.CarItemAdapter
 import com.pavesid.carsdb.repositories.FakeCarRepositoryAndroidTest
+import com.pavesid.carsdb.ui.fragments.AddCarItemFragment
 import com.pavesid.carsdb.ui.fragments.CarsFragment
 import com.pavesid.carsdb.ui.fragments.SettingsFragment
 import com.pavesid.carsdb.ui.viewmodels.CarsViewModel
@@ -20,6 +21,9 @@ class CarsFragmentFactoryAndroidTest @Inject constructor(
                 CarsViewModel(FakeCarRepositoryAndroidTest())
             )
             SettingsFragment::class.java.name -> SettingsFragment(
+                CarsViewModel(FakeCarRepositoryAndroidTest())
+            )
+            AddCarItemFragment::class.java.name -> AddCarItemFragment(
                 CarsViewModel(FakeCarRepositoryAndroidTest())
             )
             else -> super.instantiate(classLoader, className)

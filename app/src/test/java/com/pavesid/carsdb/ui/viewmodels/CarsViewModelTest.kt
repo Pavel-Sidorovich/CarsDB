@@ -101,7 +101,9 @@ class CarsViewModelTest {
             "Opel", "A4 Allroad", "A", "petrol", "2", 1
         )
         viewModel.insertCarItemIntoDb(carItem)
-        viewModel.updateCarItemIntoDb(newCarItem)
+        viewModel.insertCarItem(
+            "Opel", "A4 Allroad", "A", "petrol", "2", 1
+        )
 
         assertThat(viewModel.carItems.getOrAwaitValueTest().contains(newCarItem)).isTrue()
     }
@@ -111,11 +113,8 @@ class CarsViewModelTest {
         val carItem = CarItem(
             "Audi", "A4 Allroad", "A", "petrol", "2", 1
         )
-        val newCarItem = CarItem(
-            "Opel", "A4 Allroad", "A", "petrol", "2", 1
-        )
         viewModel.insertCarItemIntoDb(carItem)
-        viewModel.updateCarItemIntoDb(newCarItem)
+        viewModel.insertCarItem("Opel", "A4 Allroad", "A", "petrol", "2", 1)
 
         assertThat(viewModel.carItems.getOrAwaitValueTest().contains(carItem)).isFalse()
     }

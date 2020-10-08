@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.room.Room
 import com.pavesid.carsdb.data.local.CarItemDatabase
 import com.pavesid.carsdb.data.local.CarsDao
+import com.pavesid.carsdb.data.remote.CarsApi
 import com.pavesid.carsdb.repositories.CarRepository
 import com.pavesid.carsdb.repositories.DefaultCarRepository
+import com.pavesid.carsdb.util.Constants.BASE_URL
 import com.pavesid.carsdb.util.Constants.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
@@ -13,10 +15,12 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 @InstallIn(ApplicationComponent::class)
-class AppModule {
+object AppModule {
 
     @Singleton
     @Provides
@@ -33,6 +37,17 @@ class AppModule {
     @Singleton
     @Provides
     fun provideDefaultCarRepository(
-        dao: CarsDao
-    ) = DefaultCarRepository(dao) as CarRepository
+        dao: CarsDao,
+        api: CarsApi
+    ) = DefaultCarRepository(dao, api) as CarRepository
+
+    @Singleton
+    @Provides
+    fun provideCarsApi(): CarsApi {
+        return Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BASE_URL)
+            .build()
+            .create(CarsApi::class.java)
+    }
 }

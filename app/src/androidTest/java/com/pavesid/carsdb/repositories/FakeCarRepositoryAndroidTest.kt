@@ -1,14 +1,26 @@
 package com.pavesid.carsdb.repositories
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.pavesid.carsdb.data.local.CarItem
+import com.pavesid.carsdb.data.remote.responses.Brand
+import com.pavesid.carsdb.data.remote.responses.BrandsResponse
+import com.pavesid.carsdb.data.remote.responses.Model
+import com.pavesid.carsdb.data.remote.responses.ModelsResponse
+import com.pavesid.carsdb.util.Resource
 
 class FakeCarRepositoryAndroidTest : CarRepository {
 
     private val list = mutableListOf<CarItem>()
 
     private val observableCarItems = MutableLiveData<List<CarItem>>(list)
+
+    private var shouldReturnNetworkError = false
+
+    fun setShouldReturnNetworkError(value: Boolean) {
+        shouldReturnNetworkError = value
+    }
 
     private fun refreshLiveData() {
         observableCarItems.postValue(list)
@@ -60,5 +72,54 @@ class FakeCarRepositoryAndroidTest : CarRepository {
         list.sortBy { it.engineType }
         observableCarItems.postValue(list)
         return observableCarItems
+    }
+
+    override suspend fun getAllBrands(): Resource<BrandsResponse> {
+        return if (shouldReturnNetworkError) {
+            Resource.error("Error")
+        } else {
+            Resource.success(
+                BrandsResponse(
+                    0, "", listOf(
+                        Brand(
+                            0,
+                            "Opel"
+                        ),
+                        Brand(
+                            0,
+                            "Audi"
+                        )
+                    ), ""
+                )
+            )
+        }
+    }
+
+    override suspend fun getModelsForBrand(model: String): Resource<ModelsResponse> {
+        return if (shouldReturnNetworkError) {
+            Resource.error("Error")
+        } else {
+            Resource.success(
+                ModelsResponse(
+                    2,
+                    "",
+                    listOf(
+                        Model(
+                            0,
+                            "Opel",
+                            2,
+                            "A4"
+                        ),
+                        Model(
+                            0,
+                            "Opel",
+                            2,
+                            "O4"
+                        )
+                    ),
+                    ""
+                )
+            )
+        }
     }
 }

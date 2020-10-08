@@ -10,4 +10,6 @@ object Constants {
 
     const val SORT = "sort"
     const val THEME = "theme"
+
+    const val BASE_URL = "https://vpic.nhtsa.dot.gov/"
 }
